@@ -1,14 +1,14 @@
-var findLucky = function (arr) {
-    arr = arr.sort();
+var findLucky = function(arr) {
+    let dict = {};
     let num = -1;
-
     for (let i = 0; i < arr.length; i++) {
-        let first = arr.lastIndexOf(arr[i]) - arr.indexOf(arr[i]);
-        let second = arr[i] - 1;
-        if ((first === second) && arr[i] > num) {
-            num = arr[i];
+        dict[arr[i]] = (dict[arr[i]] || 0) + 1;
+    }
+    
+    for (let key in dict) {
+        if (dict[key] == key && key > num) {
+            num = dict[key];
         }
     }
-
     return num;
 };
