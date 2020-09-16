@@ -1,16 +1,14 @@
 var sortArrayByParity = function (A) {
-    let even = [];
-    let odd = [];
+    let swap = 0;
 
-    for (let i in A) {
+    for (let i = 0; i < A.length; i++) {
         if (A[i] % 2 == 0) {
-            even.push(A[i]);
-        }
-
-        else {
-            odd.push(A[i]);
+            let temp = A[swap];
+            A[swap] = A[i];
+            A[i] = temp;
+            swap++;
         }
     }
 
-    return even.concat(odd);
+    return A;
 };
